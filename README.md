@@ -1,70 +1,153 @@
-# Hospital-Disease-Track-Warehouse_ETL
 
-# 🏥 Business Problem Definition:
+# Hospital Disease Track Warehouse ETL
 
-In modern healthcare facilities, managing patient records, diseases, treatments, medications, and vaccination histories efficiently is essential to ensure high-quality care.
-However, hospitals often struggle with disparate data sources, manual tracking, and limited integration between treatment plans, patient diagnostics, and vaccination history.
-
-This project addresses these issues by developing a comprehensive **PostgreSQL-based Disease Management System**
-that not only handles operational data but also supports **analytical reporting** through a dimensional data warehouse.
+A full-stack PostgreSQL-based Disease Management System with both OLTP and analytical (Data Warehouse) models to support hospital-level reporting and decision-making.
 
 ---
 
-## Steps :
+## 🏥 ER Diagram – OLTP Schema
 
-- ER Model & Data Dictionary
-- OLTP schema with referential integrity
-- Dimensional Modeling using Kimball's methodology
-- ELT processes to populate data warehouse
-- Analytical SQL queries
+The system tracks key hospital operations: appointments, doctors, patients, treatments, medications, and vaccinations.
 
-## 🧱 Technologies Used
-- PostgreSQL
-- dbSchema / draw.io
+![Database Schema](./ERD/Database-Schema.png)
+
+---
+
+## 📊 Dimensional Model – Data Warehouse Schema
+
+Designed using the star schema model for optimized analytics and reporting.
+
+![Data Warehouse Schema](./ERD/DatawareHouse-Design.png)
+
+---
+
+## 📂 Project Structure
+
+```plaintext
+Hospital-Disease-Track-Warehouse_ETL/
+├── ERD/
+│   ├── Database-Schema.png             
+│   └── DatawareHouse-Design.png        
+├── oltp_schema/
+│   ├── create_tables.sql               
+│   ├── insert_data.sql                 
+│   └── operational_queries.sql         
+├── data_warehouse/
+│   ├── dw_schema.sql                   
+│   ├── etl_script.sql                  
+├── documentation/
+│   ├── BusinessProblem.md              
+│   ├── DataDictionary.xlsx             
+│   ├── AWS-Architecture.md             
+│   ├── NoSQL-Architecture.md           
+├── LICENSE
+└── README.md                           
+```
+
+---
+
+## 💡 Key Features
+
+- Normalized OLTP schema for hospital operations
+- Star schema data warehouse for analytical queries
+- ETL process to load and transform data
+- AWS architecture guide for deployment
+- Comparison with NoSQL for modeling alternatives
+
+---
+
+## 🔧 Technologies Used
+
+- PostgreSQL for OLTP and DW
+- SQL for queries and ETL
+- DbSchema / draw.io for data modeling
+- AWS (Lambda, S3, Snowflake) for architecture design
+
+---
+
+## 📈 Sample Analytics
+
+- Effectiveness of treatments by doctor and disease
+- Ward occupancy by gender/age
+- Doctor workload performance
+- Vaccine effectiveness and coverage
+- Medication dosage pattern analysis
+
+---
+
+## 🚀 Getting Started
+
+### Clone the Repository
+```bash
+git clone https://github.com/nikkirastogi/Hospital-Disease-Track-Warehouse_ETL.git
+```
+
+### Set Up PostgreSQL
+- Install PostgreSQL
+- Create a new database
+
+### Deploy OLTP Schema
+- Navigate to `oltp_schema/`
+- Run `create_tables.sql` and `insert_data.sql`
+
+### Design the Data Warehouse
+- Navigate to `data_warehouse/`
+- Run `dw_schema.sql` for dimensional schema
+
+### Run ETL
+- Execute `etl_script.sql` to load data into DW
+
+### Generate Reports
+- Run queries on warehouse or visualize via BI tools
+
+---
+
+## 🏥 Business Problem Definition
+
+Hospitals face challenges integrating patient, treatment, and vaccination records. This system centralizes and optimizes healthcare data using a normalized OLTP and a star-schema DW for powerful insights and decision-making.
+
+---
+
+## 🪜 Development Steps
+
+- ER Modeling + Data Dictionary
+- OLTP schema creation with constraints
+- Star schema using Kimball methodology
+- SQL-based ELT pipeline
+- Analytics + BI-ready design
+
+---
 
 ## 🎯 Objective
-The primary goal of this project is to design and implement a robust, scalable healthcare database system that:
 
-- Stores detailed records of patients, doctors, nurses, diseases, medications, vaccines, treatments, and appointments.
-- Tracks many-to-many relationships like patients,## disease history and vaccination records.
-- Supports operational needs such as scheduling appointments and assigning wards and treatments.
-- Enables healthcare administrators to generate insights and reports using analytical queries and dashboards.
+Build a robust healthcare database that:
+- Records patient, staff, disease, vaccine, and treatment data
+- Handles complex M:N relationships
+- Powers both operations and insights with SQL and ETL
 
 ---
 
 ## ✅ Key Use Cases
 
-### 1. Operational Use Cases (OLTP):
-- Schedule and manage appointments between patients and doctors.
-- Track medications prescribed for a particular disease per patient.
-- Record vaccination history for patients and measure coverage.
-- Assign nurses to hospital wards and link them to treatment plans.
-- Capture and update patient demographics and contact information.
+### OLTP:
+- Appointment scheduling
+- Medication tracking
+- Vaccine management
+- Nurse-ward assignment
+- Patient demographic updates
 
-### 2. Analytical Use Cases (OLAP/DW):
-- Analyze trends in disease incidence and treatment effectiveness.
-- Monitor ward occupancy and patient distribution by gender/age.
-- Evaluate doctor performance based on number of appointments.
-- Compute average vaccine efficiency across manufacturers.
-- Measure number of patients treated for specific disease types.
-
-## 💡 Business Impact
-
-This integrated system enhances **clinical decision-making**, supports **regulatory reporting**,
-and enables **data-driven insights**. By implementing a normalized OLTP model alongside a dimensional warehouse,
-the hospital can:
-
-- Improve patient care coordination.
-- Optimize resource (doctor, nurse, medication) allocation.
-- Enable public health monitoring of diseases and vaccinations.
-- Foster research and predictive analytics around disease outcomes.
+### OLAP:
+- Disease trend analysis
+- Doctor performance evaluation
+- Ward-level stats
+- Vaccine effectiveness
 
 ---
 
-## 🧠 Future Enhancements
+## 💡 Business Impact
 
-- Integration with external Electronic Health Record (EHR) systems.
-- Real-time streaming data ingestion via AWS Kinesis or Kafka.
-- Predictive analytics using machine learning on historical treatment outcomes.
-- Role-based access and HIPAA-compliant data security measures.
-
+- Better patient care coordination
+- Efficient resource allocation
+- Regulatory compliance
+- Public health surveillance
+- Foundation for predictive healthcare
