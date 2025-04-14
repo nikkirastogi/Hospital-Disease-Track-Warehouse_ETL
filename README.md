@@ -1,7 +1,7 @@
 
 # Hospital Disease Track Warehouse ETL
 
-A full-stack PostgreSQL-based Disease Management System with both OLTP and analytical (Data Warehouse) models to support hospital-level reporting and decision-making.
+A PostgreSQL-based Disease Management System with both OLTP and analytical (Data Warehouse) models to support hospital-level decision-making.
 
 ---
 
@@ -29,17 +29,17 @@ Hospital-Disease-Track-Warehouse_ETL/
 │   ├── Database-Schema.png             
 │   └── DatawareHouse-Design.png        
 ├── oltp_schema/
-│   ├── create_tables.sql               
-│   ├── insert_data.sql                 
-│   └── operational_queries.sql         
+│   ├── Create-Tables_Database-Disease.sql               
+│   ├── Insert_Data_Database-Disease.sql                 
+│   └── Operation-Report-DML-Queries-Database.sql         
 ├── data_warehouse/
-│   ├── dw_schema.sql                   
-│   ├── etl_script.sql                  
-├── documentation/
-│   ├── BusinessProblem.md              
-│   ├── DataDictionary.xlsx             
-│   ├── AWS-Architecture.md             
-│   ├── NoSQL-Architecture.md           
+│   ├── Create-DatawareHouse.sql                   
+│   ├── Analytical-Queries-DatawareHouse.sql   
+│   ├── ETL_process.sql                   
+├── Future_Scope/
+│   ├── FutureScope-AWS.docx           
+│   ├── FutureScope-No SQL.docx  
+│   ├── FutureScope-Snowflakes.docx      
 ├── LICENSE
 └── README.md                           
 ```
@@ -87,18 +87,18 @@ git clone https://github.com/nikkirastogi/Hospital-Disease-Track-Warehouse_ETL.g
 - Create a new database
 
 ### Deploy OLTP Schema
-- Navigate to `oltp_schema/`
-- Run `create_tables.sql` and `insert_data.sql`
+- Navigate to `Database_OLTP_Schema/`
+- Run `Create-Tables_Database-Disease.sql` and `Insert_Data_Database-Disease.sql`
 
 ### Design the Data Warehouse
 - Navigate to `data_warehouse/`
-- Run `dw_schema.sql` for dimensional schema
+- Run `Create-DatawareHouse.sql` for dimensional schema
 
 ### Run ETL
-- Execute `etl_script.sql` to load data into DW
+- Execute `ETL_process.sql` to load data into DW
 
 ### Generate Reports
-- Run queries on warehouse or visualize via BI tools
+- Run queries `Analytical-Queries-DatawareHouse.sql` on warehouse or visualize via BI tools
 
 ---
 
