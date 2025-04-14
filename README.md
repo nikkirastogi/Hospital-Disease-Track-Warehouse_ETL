@@ -28,7 +28,7 @@ Hospital-Disease-Track-Warehouse_ETL/
 ├── ERD/
 │   ├── Database-Schema.png             
 │   └── DatawareHouse-Design.png        
-├── oltp_schema/
+├── Databse_OLTP_Schema/
 │   ├── Create-Tables_Database-Disease.sql               
 │   ├── Insert_Data_Database-Disease.sql                 
 │   └── Operation-Report-DML-Queries-Database.sql         
